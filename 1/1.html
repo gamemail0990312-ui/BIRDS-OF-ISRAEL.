@@ -98,11 +98,11 @@
             margin: 20px 0;
         }
 
-        .photo-strip img {
+       .photo-strip img {
             width: 50%;
             border-radius: 8px;
-            height: 250px;
-            object-fit: cover;
+            height: auto; /* הגובה ישתנה אוטומטית לפי התמונה */
+            object-fit: contain; /* מבטיח שכל התמונה תיכנס */
         }
 
         footer {
