@@ -105,13 +105,13 @@
             text-align: center;
         }
 
-        .photo-item img {
-            width: 100%;         /* ממלא את כל רוחב הטור שלו */
-            height: 250px;       /* גובה אחיד לשתי התמונות */
-            border-radius: 8px;
-            object-fit: contain; /* מציג את כל התמונה בלי חיתוך */
-            background-color: #f0f0f0; /* רקע עדין למפה */
-        }
+       .photo-item img {
+    width: 100%;         /* תופס את כל רוחב הטור */
+    height: auto;        /* מבטל את הגובה הקבוע - התמונה תגדל לפי הצורך */
+    border-radius: 8px;
+    object-fit: block;   /* מבטל כל ניסיון לחיתוך */
+    background-color: transparent; /* מסיר את הצבע האפור */
+}
 
         .photo-title {
             font-size: 1.1rem;
