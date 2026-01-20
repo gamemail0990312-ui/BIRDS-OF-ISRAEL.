@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -14,7 +13,7 @@
             background-color: black;
         }
 
-        /* השכבה של הרקע המטושטש - חזרה לרקע הישן שלך */
+        /* השכבה של הרקע המטושטש */
         .background-overlay {
             position: fixed;
             top: 0;
@@ -22,15 +21,15 @@
             width: 100%;
             height: 100%;
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                              url("data:image/jpeg;base64,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@");
+                              url(""); /* הדבק כאן את הקישור הארוך של התמונה */
             background-position: center;
             background-size: cover;
-            filter: blur(10px); 
+            filter: blur(8px); 
             transform: scale(1.1);
             z-index: 1;
         }
 
-        /* כפתור המבורגר (3 פסים) */
+        /* כפתור המבורגר */
         .menu-toggle {
             position: fixed;
             top: 30px;
@@ -70,7 +69,7 @@
             right: 0;
         }
 
-        /* היררכיה - Details & Summary */
+        /* עיצוב רשימת הקטגוריות */
         details {
             margin-bottom: 15px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -80,6 +79,7 @@
         summary {
             font-size: 1.5rem;
             font-weight: bold;
+            color: white;
             cursor: pointer;
             list-style: none;
             display: flex;
@@ -111,7 +111,7 @@
             padding-right: 5px;
         }
 
-        /* תוכן האתר */
+        /* תוכן מרכזי */
         .content-layer {
             position: relative;
             height: 100%;
@@ -162,24 +162,17 @@
                         <details>
                             <summary>סוג: אנפה</summary>
                             <div class="nested">
-                                <a href="1/1.html" class="bird-link">אנפה אפורה</a>
+                                <a href="" class="bird-link">אנפה אפורה</a>
                             </div>
                         </details>
                         <details>
                             <summary>סוג: לבנית</summary>
                             <div class="nested">
-                                <a href="1/2.html" class="bird-link">לבנית קטנה</a>
+                                <a href="" class="bird-link">לבנית קטנה</a>
                             </div>
                         </details>
                     </div>
                 </details>
-            </div>
-        </details>
-
-        <details>
-            <summary>סדרות נוספות</summary>
-            <div class="nested">
-                <p style="color: #888;">בקרוב יתווספו מינים נוספים...</p>
             </div>
         </details>
     </div>
@@ -201,3 +194,5 @@
 
 </body>
 </html>
+
+
