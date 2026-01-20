@@ -21,7 +21,7 @@
             width: 100%;
             height: 100%;
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                              url("https://www.yardbirdsil.info/daf/migration.files/image009.jpg"); /* הדבק כאן את הקישור הארוך של התמונה */
+                              url("https://www.yardbirdsil.info/daf/migration.files/image009.jpg");
             background-position: center;
             background-size: cover;
             filter: blur(8px); 
@@ -69,7 +69,6 @@
             right: 0;
         }
 
-        /* עיצוב רשימת הקטגוריות */
         details {
             margin-bottom: 15px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -111,11 +110,12 @@
             padding-right: 5px;
         }
 
-        /* תוכן מרכזי */
+        /* תוכן מרכזי וחיפוש */
         .content-layer {
             position: relative;
             height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 2;
@@ -125,7 +125,65 @@
             color: white;
             font-size: 4rem;
             text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
             text-align: center;
+        }
+
+        /* עיצוב תיבת החיפוש */
+        .search-container {
+            position: relative;
+            width: 350px;
+        }
+
+        #birdSearch {
+            width: 100%;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        #birdSearch:focus {
+            background: rgba(255,255,255,0.2);
+            border-color: white;
+        }
+
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+            max-height: 250px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+        }
+
+        #searchResults li {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        #searchResults li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        #searchResults li:hover {
+            background: #3498db;
         }
 
         footer {
@@ -162,13 +220,13 @@
                         <details>
                             <summary>סוג: אנפה</summary>
                             <div class="nested">
-                                <a href="" class="bird-link">אנפה אפורה</a>
+                                <a href="אנפה_אפורה.html" class="bird-link">אנפה אפורה</a>
                             </div>
                         </details>
                         <details>
                             <summary>סוג: לבנית</summary>
                             <div class="nested">
-                                <a href="" class="bird-link">לבנית קטנה</a>
+                                <a href="לבנית_קטנה.html" class="bird-link">לבנית קטנה</a>
                             </div>
                         </details>
                     </div>
@@ -179,6 +237,11 @@
 
     <div class="content-layer">
         <h1>ציפורי ארץ ישראל</h1>
+        
+        <div class="search-container">
+            <input type="text" id="birdSearch" placeholder="חפש שם של ציפור..." onkeyup="filterBirds()">
+            <ul id="searchResults"></ul>
+        </div>
     </div>
 
     <footer>
@@ -186,14 +249,54 @@
     </footer>
 
     <script>
+        // פונקציית תפריט המבורגר
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
             menu.classList.toggle('active');
         }
+
+        // רשימת הציפורים לחיפוש (כאן תוכל להוסיף עוד)
+        const birds = [
+            { name: "אנפה אפורה", url: "אנפה_אפורה.html" },
+            { name: "לבנית קטנה", url: "לבנית_קטנה.html" },
+            { name: "דוכיפת", url: "דוכיפת.html" },
+            { name: "בז מצוי", url: "בז_מצוי.html" },
+            { name: "סיקסק", url: "סיקסק.html" }
+        ];
+
+        // פונקציית החיפוש
+        function filterBirds() {
+            const input = document.getElementById('birdSearch').value.toLowerCase();
+            const resultsList = document.getElementById('searchResults');
+            
+            resultsList.innerHTML = ''; // ניקוי תוצאות
+            
+            if (input.length > 0) {
+                const filtered = birds.filter(bird => bird.name.includes(input));
+                
+                if (filtered.length > 0) {
+                    resultsList.style.display = 'block';
+                    filtered.forEach(bird => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="${bird.url}">${bird.name}</a>`;
+                        resultsList.appendChild(li);
+                    });
+                } else {
+                    resultsList.style.display = 'none';
+                }
+            } else {
+                resultsList.style.display = 'none';
+            }
+        }
+
+        // סגירת רשימת החיפוש כשלוחצים מחוץ לתיבה
+        document.addEventListener('click', function(event) {
+            const searchBox = document.querySelector('.search-container');
+            if (!searchBox.contains(event.target)) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
     </script>
 
 </body>
 </html>
-
-
-
