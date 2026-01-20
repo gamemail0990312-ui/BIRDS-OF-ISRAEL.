@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אנפה אפורה Ardea cinerea</title>
+    <title>אנפה אפורה | Ardea cinerea</title>
     <style>
         :root {
             --primary-blue: #2c3e50;
@@ -47,22 +47,23 @@
         /* תוכן האתר */
         .main-container {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 0 auto 30px auto; /* מאפס את הרווח הלבן למעלה */
             background: white;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-   .hero-banner {
-    height: 300px;
-    background-image: url('ardea-cinera.jpg'); /* כאן הוספתי את ה- ; */
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-}
+        .hero-banner {
+            height: 300px;
+            background-image: url('ardea-cinera.jpg'); 
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+        }
+
         .hero-title {
             background: rgba(0,0,0,0.6);
             color: white;
@@ -75,26 +76,11 @@
             padding: 40px;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+        .bird-info p {
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .info-card {
-            background: var(--light-bg);
-            padding: 20px;
-            border-top: 4px solid var(--accent-blue);
-            border-radius: 8px;
-        }
-
-        .info-card h3 {
-            margin-top: 0;
-            color: var(--accent-blue);
-        }
-
-        /* עיצוב גלריית התמונות המעודכן */
         .photo-strip {
             display: flex;
             gap: 20px;
@@ -107,13 +93,11 @@
             text-align: center;
         }
 
-       .photo-item img {
-    width: 100%;         /* תופס את כל רוחב הטור */
-    height: auto;        /* מבטל את הגובה הקבוע - התמונה תגדל לפי הצורך */
-    border-radius: 8px;
-    object-fit: block;   /* מבטל כל ניסיון לחיתוך */
-    background-color: transparent; /* מסיר את הצבע האפור */
-}
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
         .photo-title {
             font-size: 1.1rem;
@@ -132,7 +116,7 @@
 <body>
 
     <nav>
-        <h2 style="color: white; margin: 0;">Ardea cinerea אנפה אפורה </h2>
+        <h2 style="color: white; margin: 0;">אנפה אפורה <bdi>(Ardea cinerea)</bdi></h2>
         <a href="../index.html" class="btn-back">→ חזרה לדף הבית</a> 
     </nav>
 
@@ -141,43 +125,32 @@
             <h1 class="hero-title">מידע על האנפה האפורה</h1>
         </div>
 
-      <div class="content">
-    <h2></h2>
-    <p>אֲנָפָה אֲפוֹרָה שם מדעי Ardea cinerea היא עוף מים ממשפחת האנפתיים. עוף חברותי החי בלהקות גדולות ליד מקורות מים מתוקים.</p>
+        <div class="content">
+            <h2>נעים להכיר</h2>
+            <p>אֲנָפָה אֲפוֹרָה היא עוף מים ממשפחת האנפתיים. זהו עוף חברותי החי בלהקות גדולות ליד מקורות מים מתוקים.</p>
 
-    <div class="bird-info">
-        <p><strong>מאפיינים פיזים:</strong> האנפה האפורה היא עוף גדול: גובהה כמאה ס"מ, משקלה כ-2 ק"ג, רגליה וצווארה ארוכים מאוד, ואורך מקורה כעשרה ס"מ. כנפיה של האנפה מעוגלות ורחבות ומגיעות לאורך של 185 ס"מ. גבה, כנפיה, עורפה ושולי צווארה אפורים ומכאן שמה. צבע ציצית הראש שלה וקדמת צווארה שחורות. ראשה, בטנה והחלקים התחתונים בגופה, לבנים. עיניה צהובות והאישון שלה עגול.</p>
-        
-        <p><strong>תזונה:</strong> האנפה האפורה ניזונה בעיקר מדגים, רכיכות, צפרדעים, סרטנים, תולעים, וזוחלים קטנים. האנפה האפורה אוכלת בכל יום דגים בכמות המגיעה ל-20% מכלל משקלה.
+            <div class="bird-info">
+                <p><strong>מאפיינים פיזיים:</strong> האנפה האפורה היא עוף גדול: גובהה כמאה ס"מ, משקלה כ-2 ק"ג, רגליה וצווארה ארוכים מאוד. גבה, כנפיה ועורפה אפורים, וראשה לבן עם ציצית שחורה בולטת.</p>
+                
+                <p><strong>תזונה:</strong> האנפה ניזונה בעיקר מדגים, צפרדעים וזוחלים. היא ידועה בסבלנותה הרבה: היא מסוגלת לעמוד ללא תנועה זמן רב כ"פסל" עד שהטרף מתקרב, ואז היא שולפת אותו במכה מהירה.</p>
+                
+                <p><strong>תפוצה:</strong> האנפה האפורה נפוצה מאוד וניתן למצוא אותה מאירופה ועד דרום-מזרח אסיה. בישראל היא חולפת וחורפת מצויה מאוד, במיוחד באזורי בריכות דגים ועמקים.</p>
+            </div>
 
-על מנת ללכוד דגים, קופאת האנפה על עומדה מבלי לזוז במשך זמן רב, כאשר הדגים חושבים שה"פסל" לא יכול לפגוע בהם לרעה, הם מתקרבים, והאנפה טורפת אותם במקורה הארוך והחד.</p>
-        
-        <p><strong>תפוצה:</strong> האנפה האפורה היא עוף בעל אזור תפוצה נרחב מאוד. היא חיה בבריטניה ובסקנדינביה ובכל רחבי אירופה דרך ארצות המזרח ועד דרום-מזרח אסיה.
-
-היא חיה במקומות שונים בזכות התכונה שלה להתקיים בתנאי אקלים מגוונים, מהקוטב הצפוני (בריטניה וסקנדינביה) ועד ליערות גשם טרופיים (אינדונזיה ודרום-מזרח אסיה).
-
-להקות האנפה האפורה אשר חיות במערב אירופה, הן להקות יציבות. אך הלהקות בשאר חלקי אירופה נודדות דרומה בחורף. האנפה האפורה חורפת בחלקים הטרופיים של אפריקה ובארצות הים התיכון.
-
-בישראל האנפה האפורה היא חולפת וחורפת. בסתיו חולפות הלהקות מעל מישור החוף והחופים הצפוניים של חצי האי סיני. באביב, כשהן חוזרות צפונה, הן חולפות דרך הערבה.</p>
-    </div>
-
-    <div class="photo-strip">
-        <div class="photo-item">
-            <h2 class="photo-title">אנפה אפורה</h2>
-            <img src="https://static.inaturalist.org/photos/36556986/large.jpg" alt="אנפה אפורה">
+            <div class="photo-strip">
+                <div class="photo-item">
+                    <h2 class="photo-title">אנפה אפורה בטבע</h2>
+                    <img src="https://static.inaturalist.org/photos/36556986/large.jpg" alt="אנפה אפורה">
+                </div>
+                <div class="photo-item">
+                    <h2 class="photo-title">מפת תפוצה</h2>
+                    <img src="Ardea_cinerea_map.png" alt="אנפה אפורה מפת תפוצה">
+                </div>
+            </div>
         </div>
-        <div class="photo-item">
-            <h2 class="photo-title">מפת התפוצה</h2>
-            <img src="Ardea_cinerea_map.png" alt="אנפה אפורה מפת תפוצה">
-        </div>
-    </div>
-
-    <h2></h2>
-    <p></p>
-</div>
 
         <footer>
-            כל הזכויות שמורות לש. אבנרי עורך ויוצר אין להעתיק או לצלם או כל דבר אחר ללא רשות המוציא לאור © 2026
+            כל הזכויות שמורות לש. אבנרי עורך ויוצר © 2026
         </footer>
     </div>
 
