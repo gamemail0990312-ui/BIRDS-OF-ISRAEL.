@@ -20,6 +20,77 @@
             color: #2d3436;
         }
 
+        /* --- קוד CSS חדש לתפריט ולחיפוש --- */
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1100;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .menu-toggle div {
+            width: 35px;
+            height: 4px;
+            background-color: white; /* פסים לבנים על הרקע הכחול של ה-NAV */
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1050;
+            transition: 0.5s ease;
+            padding: 60px 25px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+
+        .side-menu.active { right: 0; }
+
+        .search-box-side { margin-bottom: 30px; }
+        
+        #birdSearch {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #birdSearch::placeholder { color: #444444; }
+
+        #searchResults {
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        #searchResults li { padding: 10px; border-bottom: 1px solid #eee; }
+        #searchResults li a { color: #333; text-decoration: none; display: block; }
+        #searchResults li:hover { background: #f0f0f0; }
+
+        details { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        summary { font-weight: bold; cursor: pointer; list-style: none; color: #333; }
+        .nested { padding-right: 15px; margin-top: 5px; }
+        .bird-link { display: block; color: var(--accent-blue); text-decoration: none; padding: 5px 0; }
+        /* --- סוף קוד CSS חדש --- */
+
         nav {
             background: var(--primary-blue);
             padding: 15px 5%;
@@ -27,6 +98,7 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            padding-right: 80px; /* רווח למנוע התנגשות עם ההמבורגר */
         }
 
         .btn-back {
@@ -45,7 +117,7 @@
 
         .main-container {
             max-width: 900px;
-            margin: 0 auto 30px auto; /* הצמדה למעלה */
+            margin: 0 auto 30px auto;
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -102,6 +174,34 @@
 </head>
 <body>
 
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+        <h2 style="color: #333; border-bottom: 2px solid #333; padding-bottom: 10px;">תפריט</h2>
+        
+        <div class="search-box-side">
+            <input type="text" id="birdSearch" placeholder="חפש שם של ציפור..." onkeyup="filterBirds()">
+            <ul id="searchResults"></ul>
+        </div>
+
+        <details>
+            <summary>סדרת החסידאים</summary>
+            <div class="nested">
+                <details>
+                    <summary>משפחת האנפתיים</summary>
+                    <div class="nested">
+                        <a href="1.html" class="bird-link">אנפה אפורה</a>
+                        <a href="../2/2.html" class="bird-link">לבנית קטנה</a>
+                    </div>
+                </details>
+            </div>
+        </details>
+    </div>
+
     <nav>
         <h2 style="color: white; margin: 0;">אנפה אפורה <bdi>(Ardea cinerea)</bdi></h2>
         <a href="../index.html" class="btn-back">→ חזרה לדף הבית</a> 
@@ -140,5 +240,32 @@
         </footer>
     </div>
 
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+        }
+
+        const birds = [
+            { name: "אנפה אפורה", url: "1.html" },
+            { name: "לבנית קטנה", url: "../2/2.html" }
+        ];
+
+        function filterBirds() {
+            const input = document.getElementById('birdSearch').value.toLowerCase();
+            const resultsList = document.getElementById('searchResults');
+            resultsList.innerHTML = '';
+            if (input.length > 0) {
+                const filtered = birds.filter(bird => bird.name.includes(input));
+                if (filtered.length > 0) {
+                    resultsList.style.display = 'block';
+                    filtered.forEach(bird => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="${bird.url}">${bird.name}</a>`;
+                        resultsList.appendChild(li);
+                    });
+                } else { resultsList.style.display = 'none'; }
+            } else { resultsList.style.display = 'none'; }
+        }
+    </script>
 </body>
 </html>
