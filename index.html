@@ -154,38 +154,44 @@
             border-color: white;
         }
 
-        #searchResults {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.9);
-            border-radius: 15px;
-            margin-top: 10px;
-            list-style: none;
-            padding: 0;
-            max-height: 250px;
-            overflow-y: auto;
-            display: none;
-            z-index: 10;
-        }
+       #searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    /* שיניתי מרקע שחור ללבן עם שקיפות קלה */
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 15px;
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+    /* הוספתי צל עדין כדי שהרשימה תבלוט על הרקע */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+    border: 1px solid rgba(0,0,0,0.1);
+}
 
-        #searchResults li {
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+#searchResults li {
+    padding: 12px 20px;
+    /* שינוי צבע הקו המפריד לאפור בהיר */
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+}
 
-        #searchResults li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            font-size: 1.1rem;
-        }
+#searchResults li a {
+    /* שינוי צבע הטקסט של הציפורים לשחור/אפור כהה */
+    color: #333; 
+    text-decoration: none;
+    display: block;
+    font-size: 1.1rem;
+}
 
-        #searchResults li:hover {
-            background: #3498db;
-        }
-
+#searchResults li:hover {
+    /* שינוי צבע הרקע כשמרחפים עם העכבר (כחול בהיר או אפור) */
+    background: #f0f0f0; 
+}
         footer {
             position: absolute;
             bottom: 20px;
@@ -300,3 +306,4 @@
 
 </body>
 </html>
+
